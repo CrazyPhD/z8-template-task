@@ -8,3 +8,4 @@ application/Viewport.js
 ui/control/EMail.js
 ui/control/XMLForm.js
 ui/control/Youtube.js
+ui/control/MediaFileBox.js

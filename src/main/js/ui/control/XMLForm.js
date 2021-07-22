@@ -26,6 +26,7 @@ Z8.define('org.zenframework.z8.template.controls.XMLForm', {
 	
 	initCodeMirror: function() {
 		var textarea = this.input;
+		
 		this.XMLEditor = CodeMirror.fromTextArea(textarea, {
 			mode: "xml"
 		});
@@ -36,9 +37,15 @@ Z8.define('org.zenframework.z8.template.controls.XMLForm', {
 	},
 	
 	validate: function() {
-		if (this.XMLEditor !== null && this.getValue() !== undefined && !this.contentLoaded) {
+		if (this.XMLEditor !== null  && !this.contentLoaded) {
 			this.XMLEditor.getDoc().setValue(this.getValue());
 			this.contentLoaded = true;
+		} else {
+			if (this.XMLEditor !== null && this.XMLEditor.getDoc().getValue() !== this.getValue()) {
+				this.XMLEditor.getDoc().setValue(this.getValue());
+			}
 		}
-	}
+	},
+	
+	
 });
